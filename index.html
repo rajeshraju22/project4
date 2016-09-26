@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="scripts/jquery-1.12.3.min.js"></script>
+    <script src="scripts/js/bootstrap.min.js"></script>
+    <link href="scripts/css/bootstrap.css" rel="stylesheet" />
+    <link href="stylesheet.css" rel="stylesheet" />
+    <script src="JavaScript1.js"></script>
+</head>
+<body ng-app="myapp">
+        <center>
+            <nav class="navbar navbar-inverse">
+             <div class="container-fluid">
+              <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">my web </a>
+                </div>
+                    <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/home.html">home</a></li>             
+                    <li><a href=" #/login.html">login</a></li>
+                   <li><a href="#/register.html">register</a></li>
+                   <li><a href="#/contacts.html">contacts</a></li>
+                  <li><a href="#/aboutus.html">aboutus</a></li>
+                 </ul>
+             <ul class="nav navbar-nav navbar-right">
+             <li><a href="#login.html"><span class="glyphicon glyphicon-user"></span>sign in</a></li>                   
+             <li><a href="#home.html"><span class="glyphicon glyphicon-log-in"></span>log out</a></li>
+                </ul>
+            </div>
+        </nav>
+    </center>
+        <hr />
+        <hr />
+        <div ng-view>
+    </div>
+    <script>
+        var module = angular.module("myapp", ["ngRoute"])
+        module.config(function ($routeProvider)
+        {
+            $routeProvider
+                 .when("/home.html",
+            {
+                templateUrl: "home.html",
+                controller: "homecontroller"
+            })
+                .when("/login.html",
+               {
+                   templateUrl: "login.html",
+               })
+                 .when("/register.html",
+               {
+                    templateUrl: "register.html",
+               })
+               .when("/contacts.html",
+               {
+                   templateUrl:"contacts.html"
+               })
+
+            .when("/aboutus.html",
+                   {
+                   templateUrl: "aboutus.html"
+               })
+        .when("/",
+           {
+    templeteUrl: "index.html",
+})
+          .otherwise(
+          {
+              redirectTo:"/"
+          })
+        });
+        module.controller("homecontroller", function ($scope)
+        {
+            $scope.message = "this is from homepage";
+
+        });
+
+        module.controller("contactuscontroller", function ($scope) {
+
+            $scope.message = "this is from contact us page";
+        });
+        module.controller("aboutuscontroller", function ($scope) {
+            $scope.message = "this is from aboutus us page";
+        });
+    </script>
+</body>
+</html> 

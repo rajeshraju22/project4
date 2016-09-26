@@ -1,0 +1,106 @@
+﻿-<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="stylesheet.css" rel="stylesheet" />
+    <script src="JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+</head>
+<body>
+    <form name="form1">
+        <div class="container">
+            <div class="row centered-form">
+                <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">registration</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div role="form">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label for="first_name">firstname:</label>
+                                            <input type="text" name="first_name" class="form-control input-sm floatlabel" placeholder="First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label for="last_name">lastname:</label>
+                                            <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">email:</label>
+                                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+                                </div>
+                               <div class="row">
+                                   <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            <label for="password">password:</label>
+                                            <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+     
+                                        </div>
+                                    </div>
+                                     <div class="col-xs-6 col-sm-6 col-md-6>
+                                       <div class="form-group"> 
+                                            <label for="confirm password">confirm password:</label>
+                                           <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="Register" class="btn btn-info btn-block">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $("myform").validate(
+                    {
+                        rules: {
+                            first_name: "required",
+                            last_name: "required",
+
+                            email:
+                               {
+                                    required: true,
+                                   email: true
+                               },
+                            password:
+                                {
+                                    required: true,
+                                    minlength: 6
+                                }
+                       },
+                        message:
+
+                            {
+                               first_name: "firstname is mandatory field",
+                                last_name: "lastname is mandatory field",
+                                password:
+                                   {
+                                       required: "please provide a password",
+
+                                        minlength: "must be at least 6 characters long"
+                                    },
+                                email: "please provide a valid email address"
+                            },
+        submitHandiler: function (myform)
+        {
+                          myform.submit();
+                        }
+                    })
+            });
+        });
+    </script>
+</body>
+</html>
